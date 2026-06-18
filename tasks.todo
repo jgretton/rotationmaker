@@ -1,8 +1,9 @@
 ☐ Clean up the ui
     - add rotation number
     - increase scale of player icon when selected to move.
+    - Page scrolls when dragging icon to bottom of court (if there is a scrollbar present)
     - think about responsive nature of the appliation. Do the icons need to scale with the court depending on vw and vh
 ☐ Implement button that displays player coordinates in either YAML or JSON (need to decide the format)
-☐ clean up the project, 
-    - make components  
+☐ clean up the project,
+    - make components
     - helper functions in files.
