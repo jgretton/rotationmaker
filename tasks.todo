@@ -1,0 +1,8 @@
+☐ Clean up the ui
+    - add rotation number
+    - increase scale of player icon when selected to move.
+    - think about responsive nature of the appliation. Do the icons need to scale with the court depending on vw and vh
+☐ Implement button that displays player coordinates in either YAML or JSON (need to decide the format)
+☐ clean up the project, 
+    - make components  
+    - helper functions in files.
