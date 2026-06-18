@@ -1,5 +1,10 @@
-import { PlayerPosition, PositionCoordinate } from "@/lib/types";
-import { baseCoorFind } from "@/lib/utiles";
+import type {
+  CourtPosition,
+  Player,
+  PlayerPosition,
+  PositionCoordinate,
+} from "@/lib/types";
+import { baseCoorFind, swapLiberoIfNeeded } from "@/lib/utils";
 import { useState } from "react";
 
 const basePositionCoordinates: PositionCoordinate[] = [
@@ -21,8 +26,6 @@ const initialPlayerPositions: PlayerPosition[] = [
 ];
 
 export function useRotation() {
-  // make a clean function to pass to state for this player additions
-
   const createInitialPlayers = () => {
     return initialPlayerPositions.map((player) => {
       const { x, y } = baseCoorFind(player.position, basePositionCoordinates);
@@ -31,8 +34,7 @@ export function useRotation() {
     });
   };
 
-  const [players, setPlayers] =
-    useState<PlayerPosition[]>(createInitialPlayers);
+  const [players, setPlayers] = useState<Player[]>(createInitialPlayers);
 
   const reset = () => {
     setPlayers((prev) => {
@@ -53,16 +55,13 @@ export function useRotation() {
   const rotate = () => {
     setPlayers((prev) => {
       const newArray = prev.map((player) => {
-        const newPosition = player.position === 1 ? 6 : player.position - 1;
-        let newPositionName = player.positionName;
-
-        // Change mb to lib when moving backcourt.
-        // change lib to mb when moving front court.
-        if (player.positionName === "L" && newPosition === 4) {
-          newPositionName = "MB";
-        } else if (player.positionName === "MB" && newPosition === 1) {
-          newPositionName = "L";
-        }
+        const newPosition = (
+          player.position === 1 ? 6 : player.position - 1
+        ) as CourtPosition;
+        const newPositionName = swapLiberoIfNeeded(
+          player.positionName,
+          newPosition,
+        );
 
         const { x, y } = baseCoorFind(newPosition, basePositionCoordinates);
 

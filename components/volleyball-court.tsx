@@ -1,6 +1,6 @@
 "use client";
 
-import { PlayerPosition } from "@/lib/types";
+import type { Player } from "@/lib/types";
 import { useRef } from "react";
 import PlayerIcon from "./player-icon";
 
@@ -8,7 +8,7 @@ export default function VolleyballCourt({
   players,
   updatePlayers,
 }: {
-  players: PlayerPosition[];
+  players: Player[];
   updatePlayers: (id: number, x: number, y: number) => void;
 }) {
   const courtRef = useRef<HTMLDivElement>(null);

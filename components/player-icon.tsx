@@ -1,7 +1,7 @@
 "use client";
 
-import type { PlayerPosition } from "@/lib/types";
-import { clamp } from "@/lib/utiles";
+import type { Player } from "@/lib/types";
+import { clamp } from "@/lib/utils";
 import { useRef, useState } from "react";
 
 export default function PlayerIcon({
@@ -9,7 +9,7 @@ export default function PlayerIcon({
   court,
   updatePlayers,
 }: {
-  player: PlayerPosition;
+  player: Player;
   court: React.RefObject<HTMLDivElement | null>;
   updatePlayers: (id: number, x: number, y: number) => void;
 }) {
