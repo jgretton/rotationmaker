@@ -25,7 +25,7 @@ export default function PlayerIcon({
 
   return (
     <div
-      className={`size-10 absolute rounded-full bg-gray-600 border-2 border-white flex items-center text-white justify-center touch-none transition-[scale] ${isDragging ? "cursor-grabbing scale-120 shadow-lg" : "cursor-grab scale"}`}
+      className={`size-[clamp(2.25rem,15cqw,3.7rem)] text-[clamp(0.9rem,3.2cqw,1.5rem)] absolute rounded-full bg-gray-600 border-2 border-white flex items-center text-white justify-center touch-none select-none transition-[scale] ${isDragging ? "cursor-grabbing scale-120 shadow-lg" : "cursor-grab scale"}`}
       style={{ top: `${y}%`, left: `${x}%` }}
       onPointerDown={(event) => {
         hasMoved.current = false;
@@ -55,13 +55,13 @@ export default function PlayerIcon({
 
         const maxX =
           ((courtDimensions.width -
-            event.currentTarget.getBoundingClientRect().width) /
+            event.currentTarget.getBoundingClientRect().width / 1.2) /
             courtDimensions.width) *
           100;
 
         const maxY =
           ((courtDimensions.height -
-            event.currentTarget.getBoundingClientRect().height) /
+            event.currentTarget.getBoundingClientRect().height / 1.2) /
             courtDimensions.height) *
           100;
 
@@ -88,7 +88,7 @@ export default function PlayerIcon({
         hasMoved.current = false;
       }}
     >
-      <span className="pointer-events-none">{pos}</span>
+      <span className="pointer-events-none ">{pos}</span>
     </div>
   );
 }
