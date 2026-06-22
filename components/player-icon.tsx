@@ -25,7 +25,7 @@ export default function PlayerIcon({
 
   return (
     <div
-      className={`size-[clamp(2.25rem,15cqw,3.7rem)] text-[clamp(0.9rem,3.2cqw,1.5rem)] absolute rounded-full bg-gray-600 border-2 border-white flex items-center text-white justify-center touch-none select-none transition-[scale] ${isDragging ? "cursor-grabbing scale-120 shadow-lg" : "cursor-grab scale"}`}
+      className={`size-[clamp(2.25rem,15cqw,4rem)] text-[clamp(0.9rem,3.2cqw,1.5rem)] absolute rounded-full bg-gray-600 border-2 border-white flex items-center text-white justify-center touch-none select-none transition-[scale] ${isDragging ? "cursor-grabbing scale-120 shadow-lg" : "cursor-grab scale"}`}
       style={{ top: `${y}%`, left: `${x}%` }}
       onPointerDown={(event) => {
         hasMoved.current = false;

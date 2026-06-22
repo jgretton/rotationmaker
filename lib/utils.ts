@@ -4,8 +4,8 @@ export const clamp = (value: number, max: number, min: number) => {
   return Math.min(Math.max(value, min), max);
 };
 
-export const baseCoorFind = (
-  pos: number,
+export const findBaseCoordinate = (
+  pos: CourtPosition,
   basePositionCoordinates: PositionCoordinate[],
 ) => {
   return (
